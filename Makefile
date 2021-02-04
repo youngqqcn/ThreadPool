@@ -6,9 +6,9 @@ SOURCE :=  \
 INCS	:=
 LIBS	:= -lpthread
 
-DEFINES := --std=c++11
+DEFINES := --std=c++20
 
-CXXFLAGS := -O2 -fPIC -Wall -Wextra
+CXXFLAGS := -O1 -fPIC -Wall -Wextra
 LDFLAGS := -fPIC
 
 #****************************************************************************
@@ -23,7 +23,7 @@ OBJECT := $(addsuffix .o,$(basename ${SOURCE}))
 #****************************************************************************
 all: ${TARGET}
 
-${TARGET}: ${OBJECT}
+${TARGET}: clean ${OBJECT}
 	${CXX} ${LDFLAGS} -o ${TARGET} ${OBJECT} ${LIBS}
 
 install:
